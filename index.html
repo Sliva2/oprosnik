@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible' />
+    <meta charset="utf-8">
+    <META HTTP-EQUIV="CONTENT-LANGUAGE" CONTENT="ru">
+    <title> OPROS </title>
+    <link rel="icon" href="assets/icon/loon-icon.png" type="icon">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <form name="quiz" class="quiz" id="quiz" action="javascript:check();">
+        <p>Вопрос 1 <br> Когда началась/закончилась вторая мировая война? </p>
+        <input name="vopros1" checked="checked" value="no" id="value1" type="radio">970-971<br>
+        <input name="vopros1" value="no" id="value2" type="radio">2014-2022<br>
+        <input name="vopros1" value="nо" id="value3" type="radio">1941-1945<br>
+
+        <p>Вопрос 2<br>Кто был главой госсударства в 1976 году?</p>
+        <input name="vopros2" checked="checked" value="no" id="value1" type="radio">В.Путин<br>
+        <input name="vopros2" value="no" id="value2" type="radio">И.Сталин<br>
+        <input name="vopros2" value="nо" id="value3" type="radio">И.Брежнев<br>
+
+        <p>Вопрос 3<br>В каком году случилась авария на Чернобыльской АЭС?</p>
+        <input name="vopros3" checked="checked" value="no" id="value1" type="radio">1 октября 1876 г.<br>
+        <input name="vopros3" value="nо" id="value2" type="radio">26 апреля 1986 г.<br>
+        <input name="vopros3" value="no" id="value3" type="radio">4 июля 1999 г.<br>
+
+        <p>Вопрос 4 <br>Чей Крым?</p>
+        <input name="vopros4" checked="checked" value="nо" id="value1" type="radio">России<br>
+        <input name="vopros4" value="no" id="value2" type="radio">Украины<br>
+        <input name="vopros4" value="no" id="value3" type="radio">СССР<br>
+
+        <p>Вопрос 5 <br>Чего боятся геофобы?</p>
+        <input name="vopros5" checked="checked" value="nо" id="value1" type="radio">Земли<br>
+        <input name="vopros5" value="no" id="value2" type="radio">Воздух<br>
+        <input name="vopros5" value="no" id="value3" type="radio">Воды<br>
+
+        <p>Вопрос 6 <br>Кто открыл Америку?</p>
+        <input name="vopros6" checked="checked" value="no" id="value1" type="radio">Васко да Гама<br>
+        <input name="vopros6" value="nо" id="value2" type="radio">Хритовор Колумб<br>
+        <input name="vopros6" value="no" id="value3" type="radio">Диего колон<br>
+
+        <p>Вопрос 7 <br>Сколько лет автомату АК47?</p>
+        <input name="vopros7" checked="checked" value="nо" id="value1" type="radio">73 года<br>
+        <input name="vopros7" value="no" id="value2" type="radio">64 года<br>
+        <input name="vopros7" value="no" id="value3" type="radio">47 лет<br>
+
+        <p>Вопрос 8 <br>Какая из пород древесины считается самой твердой в мире?</p>
+        <input name="vopros8" checked="checked" value="no" id="value1" type="radio">Клён<br>
+        <input name="vopros8" value="no" id="value2" type="radio">Дуб<br>
+        <input name="vopros8" value="nо" id="value3" type="radio">Ятоба<br>
+
+        <p>Вопрос 9 <br>Чем для кактуса являются колючки?</p>
+        <input name="vopros9" checked="checked" value="no" id="value1" type="radio">Видоизмененными корнями<br>
+        <input name="vopros9" value="nо" id="value2" type="radio">Видоизмененными листьями<br>
+        <input name="vopros9" value="no" id="value3" type="radio">Видоизмененными побегами<br>
+
+        <p>Вопрос 10 <br>Какая вода содержит меньше всего примесей?</p>
+        <input name="vopros10" checked="checked" value="no" id="value1" type="radio"> Морская <br>
+        <input name="vopros10" value="nо" id="value2" type="radio"> Дождевая <br>
+        <input name="vopros10" value="no" id="value3" type="radio"> Минеральная <br>
+
+        <input type="submit" value="закончить">
+
+    </form>
+    <script>
+        function check() {
+            var yes = 0;
+            var no = 0;
+            var otvet = "";
+            var choice;
+            for (var v = 1; v <= 10; v++) {
+                var q = document.forms['quiz'].elements['vopros' + v];
+                for (var i = 0; i < q.length; i++) {
+                    if (q[i].checked) {
+                        choice = q[i].value;
+                    }
+                }
+                if (choice == "nо") { yes++; }
+                if (choice == "no") { no++; }
+            }
+            switch (true) {
+                case (yes < 5): otvet = "плохо"; break;
+                case (yes == 5): otvet = "нормально"; break;
+                case (yes > 5): otvet = "хорошо"; break;
+                default: otvet = "очень плохо"; break;
+            }
+            alert(otvet);
+        }
+    </script>
+
+</body>
+
+</html>
